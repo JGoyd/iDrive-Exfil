@@ -17,7 +17,7 @@ A forensic examination of the device and associated image files revealed a **Low
 * **Interception and Forgery**: The attacker intercepted a legitimate personal photo and modified it into a "Trojan" carrier.
 * **Hardware Spoofing**: The image metadata (XMP) falsely claims the capture was made by an **iPhone 14 Pro Max** (2.22mm lens, ƒ/1.78).
 * **Entropy Analysis**: The `mdat` section (Media Data) returned an entropy of **7.9478**.
-* **Significance**: High entropy (**>7.9**) in an image's pixel data is a definitive indicator of an **encrypted binary payload**.
+* **Significance**: High entropy in an image's pixel data is a definitive indicator of an **encrypted binary payload**.
 
 
  **MakerNote Injection**: The file's proprietary metadata was "signed" by the malicious kernel using **Shadow UUIDs** found in the unauthorized network extension cache:
@@ -31,11 +31,17 @@ A forensic examination of the device and associated image files revealed a **Low
 
 The following Indicators of Compromise (IoCs) represent the **active** attacker infrastructure identified within the carrier's binary "neighborhood":
 
-| Cluster Type | Network Range / ISP | Forensic Role |
-| --- | --- | --- |
-| **Obfuscation** | `104.16.0.0/12` (Cloudflare) | Used to mask C2 traffic as standard HTTPS CDN traffic. |
-| **Relay** | `45.46.0.0/15` (Charter/Spectrum) | **Live** domestic US ISP range used as a high-reputation proxy. |
-| **Dead Drop** | `23.29.39.32/28` (Everfast Fiber) | **Active** assignment at a medical entity used for final payload receipt. |
+
+| Cluster Type | Network Range / ISP | Forensic Role | Specific IP Indicators |
+|--------------|---------------------|---------------|-----------------------|
+| Obfuscation | 104.16.0.0/12 (Cloudflare) | Masking C2 traffic as standard HTTPS CDN traffic | 104.16.1.19 |
+| Relay | 45.47.0.0/15 (Charter/Spectrum) | High-reputation domestic proxy nodes | 45.47.56.61, 45.48.69.54, 45.50.57.51 |
+| Relay | 45.52.0.0/16 (Frontier) | High-persistence domestic proxy nodes | 45.52.50.51, 45.52.69.53, 45.52.56.67, 45.52.50.52, 45.52.68.66 |
+| Relay | 45.56.0.0/18 (Google Fiber) | High-bandwidth residential fiber relay | 45.56.56.55 |
+| Relay | 45.57.0.0/16 (Akamai) | Infrastructure-level CDN edge relay | 45.57.57.48, 45.70.48.66 |
+| Relay | 45.69.0.0/16 (Cogent) | Tier-1 transit backbone relay | 45.69.70.69 |
+| Relay | 45.66.0.0/16 (DigitalOcean) | Virtualized cloud infrastructure relay | 45.66.54.69 |
+| Dead Drop | 23.29.39.32/28 (Everfast Fiber) | Active medical entity assignment; final payload receipt | 23.29.39.45 |
 
 ## **Data Loss Assessment**
 
