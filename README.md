@@ -29,7 +29,8 @@ A forensic examination of the device and associated image files revealed a **Low
 
 ## **Infrastructure and C2 (Command & Control)**
 
-The following Indicators of Compromise (IoCs) represent the **active** attacker infrastructure identified within the carrier's binary "neighborhood":
+The following Indicators of Compromise (IoCs) represent the **active** attacker infrastructure identified within the carrier's binary "neighborhood". 
+*ISP attribution is preliminary, further investgation is ongoing 
 
 
 | Cluster Type | Network Range / ISP | Forensic Role | Specific IP Indicators |
