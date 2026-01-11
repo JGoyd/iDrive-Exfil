@@ -1,16 +1,12 @@
 # iDrive Exfil
 
-
-
-**Forensic Status:** Active Compromise / Data Exfiltration Confirmed
-
 ## **Summary**
 
 A forensic examination of the device and associated image files revealed a **Low-Level Persistence (LLP)** exploit utilizing **iCloud Drive** as the primary infection and synchronization vector. An unauthorized "iDrive Exfil" has been operating beneath the visible userland, bridging secure data (Wallet/Identity) into a steganographic carrier for exfiltration via the cloud synchronization bus.
 
 ## **The Carrier (Malicious Steganography)**
 
-**File Name:** `IMG_1553.HEIC` [VirusTotal](https://www.virustotal.com/gui/file/2035b6d7b884bf1f72acfafa835d2f243b9ac4b16d4d6c70ceee5f8378fefad1)
+**File Name:** `IMG_1553.HEIC` [VirusTotal Analysis (Verified Hash)](https://www.virustotal.com/gui/file/2035b6d7b884bf1f72acfafa835d2f243b9ac4b16d4d6c70ceee5f8378fefad1)
 
 **File Type:** Polyglot (HEIF Image + Encrypted Payload)
 
